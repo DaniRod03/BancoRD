@@ -1,5 +1,5 @@
-import BancoRD.Cliente;
-import BancoRD.Contas;
+package BancoRD;
+
 
 public class ContaCorrente extends Contas {
     private double limiteCheque;
@@ -8,7 +8,14 @@ public class ContaCorrente extends Contas {
         super(cliente, saldo);
         this.limiteCheque = limiteCheque;
     }
-
+    public void depositaCheque(float valor, String banco, String data) {
+        depositar(valor);
+        System.out.println("Cheque depositado:\n" +
+                "Banco:" + banco +
+                "\nData:" + data +
+                "\nValor:" + valor +
+                "\nSaldo: " + this.getSaldo());
+    }
      public void sacar(double saque){
         if (getSaldo() <= 0){
             if (saque <= limiteCheque){
